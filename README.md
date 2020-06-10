@@ -10,7 +10,16 @@
 
 </div>
 
-## Como usar
+
+## :open_book: Alterações
+
+Eu implementei no código do Tic Tac Toe algumas funções. Ex:
+
+* Design mais atraente e confortável
+* Contagem de pontos dos jogadores
+* Função de mostrar o proximo jogador de forma dinâmica e etc..
+
+## :dart: Como usar
 
 Você pode acessar a aplicação neste link [aqui](https://jefferson-calmon.github.io/portfolio)
 

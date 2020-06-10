@@ -21,7 +21,7 @@ Eu implementei no código do Tic Tac Toe algumas funções. Ex:
 
 ## :dart: Como usar
 
-Você pode acessar a aplicação neste link [aqui](https://jefferson-calmon.github.io/portfolio)
+Você pode acessar a aplicação neste link [aqui](https://wizardly-shannon-8e5991.netlify.app/)
 
 Caso queira rodar rodar o game em sua maquina, basta abrir uma janela do seu terminal(bash/cmd/powershell) e executar o seguintes comandos abaixo.
 

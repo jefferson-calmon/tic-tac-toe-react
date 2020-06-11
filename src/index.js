@@ -1,7 +1,7 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom';  
 import './index.css';
-import * as serviceWorker from './serviceWorker';
+import * as serviceWorker from './sw';
 
 var status;
 var point_x = 0
@@ -65,7 +65,7 @@ class Game extends React.Component {
         }
       ],
       stepNumber: 0,
-      xIsNext: true
+      xIsNext: true,
     };
   }
 
@@ -135,7 +135,6 @@ class Game extends React.Component {
       pointState(winner)
       status = `O Vencedor é: ${winner}`;
       
-      // msg = `Não foi desta vez ${winner}`
     } else {
       status = (this.state.xIsNext ? "X" : "O");
     }
@@ -143,11 +142,11 @@ class Game extends React.Component {
     
 
     return (
-      <div className="game" onClick={pointState}>
+      <div className="game" >
 
         <div className="top">
           <div className="jogador-x">
-            <span className="point-x" id="point-x">0</span>
+            <span className="point-x" id="point-x">{point_x}</span>
             <span id="jogador-x">X</span>
           </div>
 
@@ -156,7 +155,7 @@ class Game extends React.Component {
           </button>
 
           <div className="jogador-o">
-            <span className="point-o" id="point-o" >0</span>
+            <span className="point-o" id="point-o" >{point_o}</span>
             <span  id="jogador-o">O</span>
           </div>
         </div>
@@ -300,6 +299,4 @@ function pointState(winner){
     point_o++
   }
 
-  pointX.innerText = point_x
-  pointO.innerText = point_o
 }

@@ -144,6 +144,15 @@ ol, ul {
   transition: 0.2s;
 }
 
+@keyframes animate{
+  0%, 100% {
+    font-size: 40px;
+  }
+  50% {
+    font-size: 90px;
+  }
+}
+
 .point-o{
   float: right;
   color: #ffffff73;

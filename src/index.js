@@ -1,7 +1,7 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom';  
 import './index.css';
-import * as serviceWorker from './sw';
+import * as serviceWorker from './serviceWorker';
 
 var status;
 var point_x = 0
@@ -289,14 +289,22 @@ function ShowHistory(){
 
 
 function pointState(winner){
-  const pointX = document.getElementById('point-x')
-  const pointO = document.getElementById('point-o')
-
   if (winner === 'X'){
     point_x++
+    animationPoint('point-x')
   }
   if (winner === 'O'){
     point_o++
+    animationPoint('point-o')
   }
 
+}
+
+function animationPoint(id){
+  let element = document.getElementById(id)
+
+  element.style.animation = 'animate .8s linear';
+  setTimeout(() => {
+    element.style.animation = 'none';
+  }, 1000)
 }

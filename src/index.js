@@ -1,6 +1,7 @@
 import React from 'react'; 
 import ReactDOM from 'react-dom';  
 import './index.css';
+import * as serviceWorker from './serviceWorker';
 
 var status;
 var point_x = 0
@@ -190,6 +191,8 @@ class Game extends React.Component {
 // ========================================
 
 ReactDOM.render(<Game />, document.getElementById("root"));
+
+serviceWorker.unregister();
 
 function loadStatusPlayer(status){
   let o = document.getElementById('jogador-o')

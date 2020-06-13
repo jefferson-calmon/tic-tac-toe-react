@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-var status, point_x = 0, point_o = 0
+var status;
+// point_x = 0, point_o = 0
 
 function Square(props) {
   return (
@@ -64,7 +65,29 @@ class Game extends React.Component {
       ],
       stepNumber: 0,
       xIsNext: true,
+      point_x: 0,
+      point_o: 0,
     };
+
+    this.MarkPointPlayer = this.MarkPointPlayer.bind(this)
+  }
+
+  MarkPointPlayer = () => {
+    let statX = this.state.point_x;
+    let statO = this.state.point_o;
+    let xIsNext = this.state.xIsNext;
+    let stepNumber = this.state.stepNumber;
+    let history = this.state.history;
+    
+    console.log(history)
+
+    this.setState({
+      history: history,
+      stepNumber: stepNumber,
+      xIsNext: xIsNext,
+      point_x: statX,
+      point_o: statO,
+    })
   }
   
 
@@ -132,7 +155,8 @@ class Game extends React.Component {
 
     
     if (winner) {
-      pointState(winner)
+      // pointState(winner)
+      this.MarkPointPlayer(winner)
       status = `O Vencedor é: ${winner}`;
       
     } else {
@@ -146,7 +170,7 @@ class Game extends React.Component {
 
         <div className="top">
           <div className="jogador-x">
-            <span className="point-x" id="point-x">{point_x}</span>
+            <span className="point-x" id="point-x">{this.state.point_x}</span>
             <span id="jogador-x">X</span>
           </div>
 
@@ -155,7 +179,7 @@ class Game extends React.Component {
           </button>
 
           <div className="jogador-o">
-            <span className="point-o" id="point-o" >{point_o}</span>
+            <span className="point-o" id="point-o" >{this.state.point_o}</span>
             <span  id="jogador-o">O</span>
           </div>
         </div>
@@ -288,17 +312,17 @@ function ShowHistory(){
 }
 
 
-function pointState(winner){
-  if (winner === 'X'){
-    point_x++
-    animationPoint('point-x')
-  }
-  if (winner === 'O'){
-    point_o++
-    animationPoint('point-o')
-  }
+// function pointState(winner){
+//   if (winner === 'X'){
+//     point_x++
+//     animationPoint('point-x')
+//   }
+//   if (winner === 'O'){
+//     point_o++
+//     animationPoint('point-o')
+//   }
 
-}
+// }
 
 function animationPoint(id){
   let element = document.getElementById(id)

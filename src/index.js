@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-var status;
-var point_x = 0
-var point_o = 0
+var status, point_x = 0, point_o = 0
 
 function Square(props) {
   return (
@@ -68,7 +66,6 @@ class Game extends React.Component {
       xIsNext: true,
     };
   }
-
   
 
   handleClick(i) {
@@ -117,7 +114,7 @@ class Game extends React.Component {
       
       if (desc === 'Restart'){
         
-        btnRestart = <button className="restart" onClick={() => {this.jumpTo(move); restartPintura() }}>Restart</button>
+        btnRestart = <button className="restart" onClick={() => {this.jumpTo(move); restartPintura();}}>Restart</button>
         return null;
         
       } else {
@@ -129,6 +126,9 @@ class Game extends React.Component {
         );
       }
     });
+
+
+    
 
     
     if (winner) {

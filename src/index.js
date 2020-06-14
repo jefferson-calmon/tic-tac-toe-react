@@ -191,7 +191,7 @@ class Game extends React.Component {
 
 ReactDOM.render(<Game />, document.getElementById("root"));
 
-serviceWorker.unregister();
+serviceWorker.register();
 
 function loadStatusPlayer(status){
   let o = document.getElementById('jogador-o')

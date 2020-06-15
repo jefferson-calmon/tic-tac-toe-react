@@ -1,5 +1,5 @@
 <div align="center">
-    <h1> :video_game: Tic Tac Toe</h1>
+    <h1> :video_game:  Tic Tac Toe</h1>
 
 
 <p>

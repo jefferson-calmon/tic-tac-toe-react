@@ -10,7 +10,6 @@
 
 </div>
 
-
 ## :open_book: Alterações
 
 Eu implementei no código do Tic Tac Toe algumas funções. Ex:

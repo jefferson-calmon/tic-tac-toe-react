@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 
-var status, point_x = 0, point_o = 0
+var status, point_x = 0, point_o = 0, initial = true 
 
 function Square(props) {
   return (
@@ -66,16 +66,17 @@ class Game extends React.Component {
       xIsNext: true,
     };
   }
-  
 
   handleClick(i) {
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
+
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    loadStatusPlayer(status)
+
+    loadStatusPlayer(this.state.xIsNext)
     squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       history: history.concat([
@@ -88,14 +89,19 @@ class Game extends React.Component {
     });
   }
 
+
+
   jumpTo(step) {
+
     this.setState({
       stepNumber: step,
-      xIsNext: (step % 2) === 0
+      // xIsNext: this.state.xIsNext ? true : false
+      xIsNext: this.state.xIsNext
     });
 
-    restartPintura()
 
+    loadStatusPlayer(this.state.xIsNext)
+    restartPintura()
   }
 
 
@@ -127,14 +133,20 @@ class Game extends React.Component {
       }
     });
 
-
-    
-
     
     if (winner) {
       pointState(winner)
       status = `O Vencedor é: ${winner}`;
-      
+
+      // 
+
+      // let test = this.state.history.slice()
+
+      // test = test.map(list => {
+      //   list = [null, null, null, null, null, null, null, null, null]
+      //   return list
+      // });
+
     } else {
       status = (this.state.xIsNext ? "X" : "O");
     }
@@ -194,21 +206,23 @@ ReactDOM.render(<Game />, document.getElementById("root"));
 serviceWorker.register();
 
 function loadStatusPlayer(status){
-  let o = document.getElementById('jogador-o')
-  let x = document.getElementById('jogador-x')
+  // let o = document.getElementById('jogad-o')
+  // let x = document.getElementById('jogad-x')
 
-  if (status === "O") {
-    o.style.textShadow = 'none'
-    o.style.color = '#252e35'
-    x.style.color = 'aqua'
-    x.style.textShadow = '0 0 10px aqua'
-  }
-  if (status === "X") {
-    o.style.textShadow = '0 0 10px aqua'
-    o.style.color = 'aqua'
-    x.style.color = '#252e35'
-    x.style.textShadow = 'none'
-  }
+  // if (!status) {
+  //   o.style.textShadow = 'none'
+  //   o.style.color = '#252e35'
+  //   x.style.color = 'aqua'
+  //   x.style.textShadow = '0 0 10px aqua'
+  // }
+  // if (status) {
+  //   o.style.textShadow = '0 0 10px aqua'
+  //   o.style.color = 'aqua'
+  //   x.style.color = '#252e35'
+  //   x.style.textShadow = 'none'
+  // }
+
+  return null
 }
 
 function calculateWinner(squares) {
@@ -260,10 +274,10 @@ function restartPintura() {
   let o = document.getElementById('jogador-o')
   let x = document.getElementById('jogador-x')
   
-  o.style.textShadow = 'none'
-  o.style.color = '#252e35'
-  x.style.color = 'aqua'
-  x.style.textShadow = '0 0 10px aqua'
+  // o.style.textShadow = 'none'
+  // o.style.color = '#252e35'
+  // x.style.color = 'aqua'
+  // x.style.textShadow = '0 0 10px aqua'
   
 }
 // var serialButton = false

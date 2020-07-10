@@ -135,7 +135,8 @@ ol, ul {
 
 .jogador-o span#jogador-o{
   float: left;
-  color: #252e35;
+  color: aqua;
+  text-shadow: 0 0 10px aqua;
   font-size: 50px;
   font-weight: bold;
   line-height: 75px;
